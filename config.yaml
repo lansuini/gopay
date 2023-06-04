@@ -1,0 +1,48 @@
+AppName: GOPAY
+GlobalJsVer: 202302121546
+Env: dev # 环境，线上环境：prod、测试环境：dev
+BaseUrl: http://luckypay.mm # 网站域名
+Port: 8101 # 端口
+LogPath: logs/ # 日志目录
+LogFile: logs/system.log # 日志文件
+StaticPath: /data/www/static  # 根路径下的静态文件目录，可配置绝对路径
+DataSalt : 20ym2304187d1hi6   #商户数据加密密钥
+DataSaltIV : 6ih1d7814032my02
+PsSalt : fb891d0bed7d6c483facd2e5ec4e5a38  #登录密码加密
+# 数据库连接
+DB:
+  Url: root:phpcj@tcp(localhost:3306)/luckypay?charset=utf8mb4&parseTime=True&loc=Local
+  MaxIdleConns: 50
+  MaxOpenConns: 200
+# redis 配置
+Redis:
+  NetWork: tcp
+  Addr: 127.0.0.1:6379
+  Password:
+  Db: 1
+#域名设置
+HostSet:
+  GM_ENABLE: true
+  DOMAIN: luckypay.mm
+  PORT: 8100
+  NOTIFY_PORT: 8099
+  GM_PORT: 8101
+  MERCHANT_PORT: 8102
+  GATE_PORT: 8103
+  CB_PORT: 8104
+  GM_IPWHITE: 127.0.0.1
+#系统配置
+SystemConfig:
+  GATE_IP_PROTECT: true
+  IP_PROTECT_TIME: 5
+#定时任务配置
+Crontab:
+  SETTLE_FETCH_AUTO_PUSH: true #代付自动查询
+  SETTLE_FETCH_TASK: 1         #每次启动代付查询次数
+  PAY_NOTIFY_AUTO_PUSH: true   #支付回调自动推送
+  PAY_NOTIFY_TASK: 1           #每次启动支付回调次数
+  SETTLE_NOTIFY_AUTO_PUSH: true #代付回调自动推送
+  SETTLE_NOTIFY_TASK: 3         #每次启动代付回调次数
+  SETTLE_FETCH_LIMIT: true      #代付订单查询限制开关
+
+
